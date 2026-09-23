@@ -1,0 +1,36 @@
+name: Refresh datasets
+
+# Pulls the live files each morning so the commit history is the change
+# history. A day with no commit means nothing moved.
+on:
+  schedule:
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull the live datasets
+        run: |
+          set -o pipefail
+          for f in bitcoin-custody-dataset.json bitcoin-custody-dataset.csv custody-incidents.json hardware-wallet-scores.json custody-models.json; do
+            curl -sS --fail --max-time 60 "https://proofofcustody.io/data/$f" -o "data/$f"
+          done
+      - name: Commit if anything changed
+        run: |
+          git config user.name "proof-of-custody-bot"
+          git config user.email "hello@proofofcustody.io"
+          # dateModified changes on every fetch; only commit when the data does.
+          if git diff --stat -- data | grep -qvE "dateModified" && ! git diff --quiet -- data; then
+            git add data
+            git commit -m "Data refresh $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "No material change."
+            git checkout -- data || true
+          fi

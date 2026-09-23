@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://proofofcustody.io/schema/platform-scores.schema.json",
+  "title": "Proof of Custody platform score record",
+  "type": "object",
+  "required": ["name", "slug", "url", "category", "custodyLabel", "overallScore", "scores"],
+  "properties": {
+    "name": { "type": "string" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "url": { "type": "string", "format": "uri", "description": "The Proof of Custody record for this platform" },
+    "website": { "type": ["string", "null"], "format": "uri" },
+    "category": { "type": "string", "enum": ["custody", "buy-exchange", "ira", "etf", "yield", "hardware", "fintech", "lending"] },
+    "custodyLabel": { "type": "string", "description": "The custody model as operated" },
+    "assetClass": { "type": ["string", "null"], "enum": ["bitcoin", "stablecoin", "tokenized-asset", null] },
+    "overallScore": { "type": "number", "minimum": 0, "maximum": 100 },
+    "scores": {
+      "type": "object",
+      "required": ["custody", "ease", "fees", "features", "transparency", "support"],
+      "properties": {
+        "custody": { "type": "number", "minimum": 0, "maximum": 100, "description": "35% of the overall score" },
+        "ease": { "type": "number", "minimum": 0, "maximum": 100, "description": "20%" },
+        "fees": { "type": "number", "minimum": 0, "maximum": 100, "description": "15%" },
+        "features": { "type": "number", "minimum": 0, "maximum": 100, "description": "10%. Custody-relevant capability only from 2026-09-23" },
+        "transparency": { "type": "number", "minimum": 0, "maximum": 100, "description": "10%" },
+        "support": { "type": "number", "minimum": 0, "maximum": 100, "description": "10%" }
+      }
+    },
+    "audienceType": { "type": ["string", "null"] },
+    "minimumInvestment": { "type": ["string", "null"] },
+    "feeDisplay": { "type": ["string", "null"] },
+    "singlePointOfFailure": { "type": ["string", "null"], "description": "What has to fail for the holder to lose access" },
+    "highlight": { "type": ["string", "null"] },
+    "risk": { "type": ["string", "null"] }
+  }
+}
