@@ -1,10 +1,10 @@
 # Proof of Custody — Bitcoin Custody Dataset
-# Source: https://proofofcustody.io/data/bitcoin-custody-dataset.csv  |  Generated: 2026-09-26T14:47:20.529Z
+# Source: https://proofofcustody.io/data/bitcoin-custody-dataset.csv  |  Generated: 2026-09-28T04:22:05.472Z
 # Methodology: https://proofofcustody.io/methodology  |  Editorial: https://proofofcustody.io/editorial-independence
 # License: CC-BY-4.0  |  Citation: "Proof of Custody (proofofcustody.io)"
 
 name,slug,url,website,category,custodyLabel,assetClass,overallScore,score_custody,score_fees,score_ease,score_features,score_transparency,score_support,audienceType,minimumInvestment,feeDisplay,singlePointOfFailure,highlight,risk
-Onramp,onramp,https://proofofcustody.io/platform/onramp,https://onrampbitcoin.com,custody,Multi-Institution Custody,,90,97,84,87,88,90,80,Institutions & HNW,$100K,$250/mo,false,"Only platform with multiple regulated custodians each holding one key and jurisdictions. Inheritance, dynasty trusts, insurance on segregated incidents.",Higher minimums. Newer platform with smaller user base than legacy exchanges.
+Onramp,onramp,https://proofofcustody.io/platform/onramp,https://onrampbitcoin.com,custody,Multi-Institution Custody,,90,97,84,87,88,90,80,Institutions & HNW,$100K,$250/mo,false,"Only platform with multiple regulated custodians and jurisdictions. Inheritance, dynasty trusts, insurance on segregated incidents.",Higher minimums. Newer platform with smaller user base than legacy exchanges.
 Onramp Finance,onramp-finance,https://proofofcustody.io/platform/onramp-finance,https://onrampbitcoin.com,buy-exchange,Qualified Custodian (BitGo),,89,95,85,87,85,90,82,Retail & DCA,$0,0.59% one-time,true,"Lowest cost one-time buys at 59bps. Earn 3% on cash, 1.5% card rewards, lending available.",Single party custody through BitGo. Not multi-institution.
 Unchained,unchained,https://proofofcustody.io/platform/unchained,https://unchained.com,custody,Collaborative Multisig,,85,90,75,80,86,85,85,Self-Sovereign,$0,$250/yr + trading,false,2-of-3 multisig where client holds 2 keys. Strong inheritance and IRA products. Lending available.,"Client holds hardware devices, creating physical exposure. Single company as co-signer."
 Unchained,unchained-buy,https://proofofcustody.io/platform/unchained-buy,https://unchained.com,buy-exchange,Collaborative Multisig,,84,88,78,82,82,84,82,Self-Sovereign,$0,1% + trading spread,false,"Buy directly into collaborative custody. IRA, lending, and inheritance built in.",Requires hardware key management. Higher learning curve for new users.
